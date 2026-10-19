@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SALTFRAME — Start an order — custom request</title>
+<meta name="description" content="Start a SALTFRAME custom order: frame, material, lens, one message, one pair.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23212422'/%3E%3Crect x='5' y='11' width='9' height='8' rx='3' fill='none' stroke='%23d7e600' stroke-width='2'/%3E%3Crect x='18' y='11' width='9' height='8' rx='3' fill='none' stroke='%23d7e600' stroke-width='2'/%3E%3Cpath d='M14 15h4' stroke='%23d7e600' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/site.css">
+</head>
+
+<body>
+
+<aside class="rail">
+<a class="word" href="/index.html">SALTFRAME</a>
+<div class="tag">Shaped &amp; polished<br>custom acetate eyewear<br>Jakarta, small bench</div>
+<nav class="nav" id="nav">
+<a href="/index.html" >Home</a>
+<a href="/frames.html">Frames</a>
+<a href="/material.html">Material</a>
+<a href="/process.html">Process</a>
+<a href="/commissions.html">Commissions</a>
+<a href="/care.html">Care &amp; Guarantee</a>
+<a href="/about.html">About</a>
+<a href="/order.html" class="active" aria-current="page">Order</a>
+<a href="/faq.html">FAQ / Contact</a>
+</nav>
+<div class="btns"><a class="btn solid" href="/order.html">Start an order <span>&rarr;</span></a></div>
+<a class="ig" href="https://instagram.com/saltframe.demo" target="_blank" rel="noopener">Instagram <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+<p class="foot">06&deg;12&prime;S 106&deg;50&prime;E<br>Jakarta &middot; demo</p>
+<button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+</aside>
+
+<main id="top">
+<section class="phead rv">
+<div class="kicker">Order — one message, one pair<br>A conversation, not a checkout</div>
+<h1>Start an order.</h1>
+<p>Fill the five fields below. The engraving preview updates as you type. We reply by person before anything is cut.</p>
+</section>
+
+<div class="order-grid">
+<div class="rv">
+<form class="wform" id="oForm" action="mailto:studio@saltframe.local" method="get">
+<label>Name<input id="o-name" name="name" type="text" placeholder="Your name" required></label>
+<label>Email<input id="o-email" name="email" type="email" placeholder="you@email.com" required></label>
+<label>Frame<select id="o-frame" name="frame"><option>Tide</option><option>Dune</option><option>Moss</option></select></label>
+<label>Material<select id="o-material" name="material"><option>Black acetate</option><option>Tortoise acetate</option><option>Olive acetate</option></select></label>
+<label>Lens<select id="o-lens" name="lens"><option>Clear</option><option>Sun</option><option>Blue light</option></select></label>
+<label>Notes<textarea id="o-notes" name="notes" placeholder="Face width, prescription, other notes (optional)"></textarea></label>
+<div class="summary">Preview<b>Frame: <i id="sFrame">Tide</i></b><b>Material: <i id="sMaterial">Black acetate</i></b><b>Lens: <i id="sLens">Clear</i></b></div>
+<div class="engrave" id="engrave">SALTFRAME — SF/01 TIDE</div>
+<button class="submit" type="submit">Send the request — a conversation, not a checkout <span>→</span></button>
+</form>
+</div>
+
+<div class="side rv">
+<h3>What happens next</h3>
+<ol>
+<li><b>1. A person reads it.</b> Reply by email within 1–2 days (demo) — no auto-responder.</li>
+<li><b>2. We confirm the shape.</b> Material sheet, lens, prescription numbers, demo quote locked together.</li>
+<li><b>3. Only then the bench starts.</b> Cut, tumble, polish, mount, align — 10–14 working days (demo).</li>
+<li><b>4. Shipped with tracking.</b> Engraved SALTFRAME — SF/0X — inside the temple.</li>
+</ol>
+<p class="note">Prices shown are <b>demo figures</b> — no real orders.</p>
+</div>
+</div>
+
+<footer class="footer">
+<span>No stock, no batches. Ten-year guarantee against defects. <span class="demo">Demo concept — sample data, no real orders.</span></span>
+<a class="btn solid" href="/order.html">Start an order <span>→</span></a>
+</footer>
+</main>
+
+<div class="lb" id="lb"><span class="x" id="lbX">×</span><img id="lbImg" alt=""><span class="cap" id="lbCap"></span></div>
+
+<script src="/site.js"></script>
+<script>
+
+const N={Tide:1,Dune:2,Moss:3};
+function upd(){
+const nm=(document.getElementById('o-name').value||'').trim().toUpperCase().slice(0,22);
+const fr=document.getElementById('o-frame').value;
+document.getElementById('sFrame').textContent=fr;
+document.getElementById('sMaterial').textContent=document.getElementById('o-material').value;
+document.getElementById('sLens').textContent=document.getElementById('o-lens').value;
+const id='SF/0'+N[fr]+' '+fr.toUpperCase();
+document.getElementById('engrave').textContent=nm?'SALTFRAME — '+id+' — '+nm:'SALTFRAME — '+id;
+}
+['o-name','o-frame','o-material','o-lens'].forEach(i=>{const el=document.getElementById(i);el.addEventListener(el.tagName==='SELECT'?'change':'input',upd)});
+const q=new URLSearchParams(location.search).get('f');
+if(q&&N[q])document.getElementById('o-frame').value=q;
+upd();
+document.getElementById('oForm').addEventListener('submit',e=>{
+e.preventDefault();
+const body=encodeURIComponent('Frame: '+document.getElementById('o-frame').value+'\nMaterial: '+document.getElementById('o-material').value+'\nLens: '+document.getElementById('o-lens').value+'\nName: '+document.getElementById('o-name').value+'\nEmail: '+document.getElementById('o-email').value+'\nNotes: '+document.getElementById('o-notes').value);
+location.href='mailto:studio@saltframe.local?subject='+encodeURIComponent('Custom SALTFRAME request')+'&body='+body;
+});
+
+</script>
+</body>
+</html>

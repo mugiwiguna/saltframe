@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SALTFRAME — Commissions — recent work archive</title>
+<meta name="description" content="SALTFRAME commissions gallery: recent custom frames, filter by model.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23212422'/%3E%3Crect x='5' y='11' width='9' height='8' rx='3' fill='none' stroke='%23d7e600' stroke-width='2'/%3E%3Crect x='18' y='11' width='9' height='8' rx='3' fill='none' stroke='%23d7e600' stroke-width='2'/%3E%3Cpath d='M14 15h4' stroke='%23d7e600' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/site.css">
+</head>
+
+<body>
+
+<aside class="rail">
+<a class="word" href="/index.html">SALTFRAME</a>
+<div class="tag">Shaped &amp; polished<br>custom acetate eyewear<br>Jakarta, small bench</div>
+<nav class="nav" id="nav">
+<a href="/index.html" >Home</a>
+<a href="/frames.html">Frames</a>
+<a href="/material.html">Material</a>
+<a href="/process.html">Process</a>
+<a href="/commissions.html" class="active" aria-current="page">Commissions</a>
+<a href="/care.html">Care &amp; Guarantee</a>
+<a href="/about.html">About</a>
+<a href="/order.html">Order</a>
+<a href="/faq.html">FAQ / Contact</a>
+</nav>
+<div class="btns"><a class="btn solid" href="/order.html">Start an order <span>&rarr;</span></a></div>
+<a class="ig" href="https://instagram.com/saltframe.demo" target="_blank" rel="noopener">Instagram <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+<p class="foot">06&deg;12&prime;S 106&deg;50&prime;E<br>Jakarta &middot; demo</p>
+<button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+</aside>
+
+<main id="top">
+<section class="phead rv">
+<div class="kicker">Commissions — recent work<br>Archive / demo</div>
+<h1>Recent commissions.</h1>
+<p>Every pair here started as one message. Click any photo to enlarge. Sample archive — demo data, no real orders.</p>
+</section>
+
+<div class="filters rv">
+<button class="fbtn on" data-f="all">All</button>
+<button class="fbtn" data-f="Tide">Tide</button>
+<button class="fbtn" data-f="Dune">Dune</button>
+<button class="fbtn" data-f="Moss">Moss</button>
+</div>
+<div class="gallery">
+<div class="comm rv" data-model="Tide"><img src="/public/images/tide.webp" alt="Tide — Black acetate, clear lens" data-cap="Tide — Black acetate, clear lens"><div class="flag">01 · archive</div></div>
+<div class="comm rv" data-model="Moss"><img src="/public/images/moss.webp" alt="Moss — Olive acetate, round eye" data-cap="Moss — Olive acetate, round eye"><div class="flag">02 · archive</div></div>
+<div class="comm rv" data-model="Dune"><img src="/public/images/dune.webp" alt="Dune — Tortoise, angled brow" data-cap="Dune — Tortoise, angled brow"><div class="flag">03 · archive</div></div>
+<div class="comm rv" data-model="Tide"><img src="/public/images/tide.webp" alt="Tide — Tortoise, flat top" data-cap="Tide — Tortoise, flat top"><div class="flag">04 · archive</div></div>
+<div class="comm rv" data-model="Dune"><img src="/public/images/dune.webp" alt="Dune — Black, sun lens" data-cap="Dune — Black, sun lens"><div class="flag">05 · archive</div></div>
+<div class="comm rv" data-model="Moss"><img src="/public/images/moss.webp" alt="Moss — Black, keyhole bridge" data-cap="Moss — Black, keyhole bridge"><div class="flag">06 · archive</div></div>
+<div class="comm rv" data-model="Tide"><img src="/public/images/tide.webp" alt="Tide — Olive, blue light" data-cap="Tide — Olive, blue light"><div class="flag">07 · archive</div></div>
+<div class="comm rv" data-model="Moss"><img src="/public/images/moss.webp" alt="Moss — Tortoise, polished edge" data-cap="Moss — Tortoise, polished edge"><div class="flag">08 · archive</div></div>
+</div>
+
+<footer class="footer">
+<span>No stock, no batches. Ten-year guarantee against defects. <span class="demo">Demo concept — sample data, no real orders.</span></span>
+<a class="btn solid" href="/order.html">Start an order <span>→</span></a>
+</footer>
+</main>
+
+<div class="lb" id="lb"><span class="x" id="lbX">×</span><img id="lbImg" alt=""><span class="cap" id="lbCap"></span></div>
+
+<script src="/site.js"></script>
+<script>
+
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
+document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelectorAll('.comm').forEach(c=>{c.style.display=(b.dataset.f==='all'||c.dataset.model===b.dataset.f)?'':'none'});
+}));
+
+</script>
+</body>
+</html>
